@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "mat-single-overlay": {
+      "projectType": "library",
+      "root": "projects/mat-single-overlay",
+      "sourceRoot": "projects/mat-single-overlay/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/mat-single-overlay/tsconfig.lib.json",
+            "project": "projects/mat-single-overlay/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mat-single-overlay/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mat-single-overlay/tsconfig.lib.json",
+              "projects/mat-single-overlay/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "mat-single-overlay"
 }
